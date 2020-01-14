@@ -54,7 +54,7 @@ func (server *Server) CreatePost(w http.ResponseWriter, r *http.Request) {
 	responses.JSON(w, http.StatusCreated, postCreated)
 }
 
-//GetPost
+//GetPosts  method recieved by Server sturct
 func (server *Server) GetPosts(w http.ResponseWriter, r *http.Request) {
 
 	post := models.Post{}
@@ -66,7 +66,7 @@ func (server *Server) GetPosts(w http.ResponseWriter, r *http.Request) {
 	}
 	responses.JSON(w, http.StatusOK, posts)
 }
-
+//GetPost method recieved by Server sturct
 func (server *Server) GetPost(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
@@ -84,7 +84,7 @@ func (server *Server) GetPost(w http.ResponseWriter, r *http.Request) {
 	}
 	responses.JSON(w, http.StatusOK, postReceived)
 }
-
+//UpdatePost method recieved by Server sturct
 func (server *Server) UpdatePost(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
@@ -155,7 +155,7 @@ func (server *Server) UpdatePost(w http.ResponseWriter, r *http.Request) {
 	}
 	responses.JSON(w, http.StatusOK, postUpdated)
 }
-
+//DeletePost method recieved by Server sturct
 func (server *Server) DeletePost(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)

@@ -11,12 +11,12 @@ import (
 
 	_ "github.com/jinzhu/gorm/dialects/mysql" //mysql database driver
 )
-
+//Server struct for recieving lot of controler api methods 
 type Server struct {
 	DB     *gorm.DB
 	Router *mux.Router
 }
-
+//Initialize initilize Mysql db 
 func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, DbName string) {
 
 	var err error
@@ -48,7 +48,7 @@ func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, D
 
 	server.initializeRoutes()
 }
-
+//Run main api run starting method 
 func (server *Server) Run(addr string) {
 	fmt.Println("Listening to port 8080")
 	log.Fatal(http.ListenAndServe(addr, server.Router))
